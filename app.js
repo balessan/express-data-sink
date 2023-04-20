@@ -80,11 +80,53 @@ app.get("/sink/:filename", (req, res) => {
   }
 });
 
+// GET endpoint to read data from file and return HTML with solid-display web component
+app.get('/directory/:filename', (req, res, port, ip) => {
+    const fileName = req.params.filename;
+    const filePath = `./${fileName}`;
+    fs.readFile(filePath, (err, data) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send('Error reading file');
+      } else {
+        const html = `
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <title>Directory of users</title>
+              <!-- Load styling framework used by orbit -->
+              <link
+                rel="stylesheet"
+                href="https://unpkg.com/@startinblox/orbit-styling-framework/dist/index.css"
+              />
+              <script src="https://cdn.skypack.dev/@startinblox/core"></script>
+              <!-- Load core components -->
+              <script
+                type="module"
+                src="https://cdn.skypack.dev/@startinblox/router"
+              ></script>
+              <script
+                type="module"
+                src="https://cdn.skypack.dev/@startinblox/component-directory"
+              ></script>
+            </head>
+            <body>
+              <solid-directory data-src="https://${ip}:${port}/sink/${fileName}"></solid-directory>
+            </body>
+          </html>
+        `;
+        res.send(html);
+      }
+    });
+  });
+
+
+
 // Default catch-all route to present API information
 app.use((req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
 
 app.listen(port, ip, () => {
-  console.log(`API running at http://${ip}:${port}`);
+  console.log(`API running at https://${ip}:${port}`);
 });
