@@ -1,15 +1,14 @@
 {
-    "name": "data-sink",
-    "version": "1.0.0",
-    "description": "A data sink without any kind of authentication or security.  Use at your own risk.",
-    "main": "app.js",
-    "dependencies": {
-      "express": "^4.17.2",
-      "body-parser": "^1.19.0",
-      "dotenv": "16.0.3"
-    },
-    "scripts": {
-      "start": "node app.js"
-    }
+  "name": "data-sink",
+  "version": "1.0.0",
+  "description": "A data sink without any kind of authentication or security.  Use at your own risk.",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.2",
+    "body-parser": "^1.19.0",
+    "dotenv": "16.0.3"
+  },
+  "scripts": {
+    "start": "node app.js"
   }
-  
+}
