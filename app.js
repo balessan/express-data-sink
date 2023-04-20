@@ -102,7 +102,7 @@ app.get("/directory/:filename", (req, res) => {
             ></script>
             <script
             type="module"
-            src="https://cdn.skypack.dev/@startinblox/component-directory"
+            src="https://cdn.skypack.dev/@startinblox/component-directory@beta"
             ></script>
         </head>
         <body>
