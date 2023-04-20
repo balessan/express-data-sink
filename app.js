@@ -70,7 +70,10 @@ app.get("/sink/:filename", (req, res) => {
         console.error(err);
         res.status(500).send("Error reading file");
       } else {
-        res.set("Content-Type", "application/json+ld");
+        res.set({
+            'Content-Type': 'application/json',
+            'Content-Disposition': 'inline'
+        });
         res.send(data);
       }
     });
