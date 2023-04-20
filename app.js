@@ -75,6 +75,11 @@ app.get("/", (req, res) => {
   }
 });
 
+// Default catch-all route to present API information
+app.use((req, res) => {
+    res.sendFile(__dirname + '/public/index.html');
+  });
+
 app.listen(port, ip, () => {
   console.log("API running on port 3000");
 });
