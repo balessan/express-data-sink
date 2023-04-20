@@ -92,7 +92,7 @@ app.get("/directory/:filename", (req, res) => {
             <!-- Load styling framework used by orbit -->
             <link
             rel="stylesheet"
-            href="https://unpkg.com/@startinblox/orbit-styling-framework/dist/index.css"
+            href="https://cdn.startinblox.com/orbit-styling-framework/index.css"
             />
             <script src="https://cdn.skypack.dev/@startinblox/core"></script>
             <!-- Load core components -->
@@ -106,7 +106,10 @@ app.get("/directory/:filename", (req, res) => {
             ></script>
         </head>
         <body>
-            <solid-directory data-src="https://express.datasink.startinblox.com/sink/${fileName}"></solid-directory>
+            <solid-directory 
+                data-src="https://express.datasink.startinblox.com/sink/${fileName}"
+                show-incomplete="true"
+            ></solid-directory>
         </body>
         </html>
     `;
