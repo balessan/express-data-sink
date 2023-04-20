@@ -47,7 +47,7 @@ app.post("/", (req, res) => {
         console.error(err);
         res.status(500).send("Error writing to file");
       } else {
-        res.send("Successfully wrote to file");
+        res.send({'message':'success'}).json();
       }
     });
   }
