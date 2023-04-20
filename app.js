@@ -1,7 +1,11 @@
 const bodyParser = require("body-parser");
 const express = require("express");
 const fs = require("fs");
+require('dotenv').config();
+
 const app = express();
+const port = process.env.PORT || 3000;
+const ip = process.env.IP || '127.0.0.1';
 
 // Middleware to parse request body as JSON or binary
 app.use((req, res, next) => {
@@ -71,6 +75,6 @@ app.get("/", (req, res) => {
   }
 });
 
-app.listen(3000, () => {
+app.listen(port, ip, () => {
   console.log("API running on port 3000");
 });
